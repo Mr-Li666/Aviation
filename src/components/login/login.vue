@@ -7,7 +7,7 @@
         <input type="password" placeholder="密码" />
         <div class="VerificationCode">
           <input type="text" placeholder="验证码(区分大小写)" />
-          <button type="button" @click="changeCode()">验证码</button>
+          <button type="button" @click="changeCode()">{{final_Vcode}}</button>
         </div>
         <div class="login_btn">
           <button type="button">登录</button>
@@ -28,14 +28,31 @@ export default {
   name: "login",
   data(){
     return{
-      
+      initial_Vcode:[
+        '1','2','3','4','5','6','7','8','9','0',
+				'a','b','c','d','e','f','g','h','i','j',
+				'k','l','m','n','o','p','q','r','s','t',
+				'u','v','w','x','y','z',
+				'A','B','C','D','E','F','G','H','I','J',
+				'K','L','M','N','O','P','Q','R','S','T',
+				'U','V','W','X','Y','Z'],
+      final_Vcode:''
     }
   },
   methods:{
     changeCode(){
-      console.log('改变验证码');
-
+      // 点击时改变验证码
+      this.final_Vcode = ''
+      
+      for(let i = 0; i<4; i++){
+        let index = parseInt(Math.random()*(this.initial_Vcode.length));
+        this.final_Vcode += this.initial_Vcode[index] 
+      }
     }
+  },
+  created(){
+    // 组件创建完成时，渲染验证码，否则会出现验证码区域空白
+    this.changeCode()
   }
 };
 </script>
@@ -88,6 +105,7 @@ export default {
   border: 0;
   margin-left: 2%;
   outline: none;
+  font-size: 14px;
 }
 /* .login_btn{
   width: 100%;

@@ -1,5 +1,5 @@
 module.exports = {
-  configureWebpack:{
+  configureWebpack: {
     resolve: {
       alias: {
         'assets': '@/assets',
@@ -9,5 +9,30 @@ module.exports = {
         'views': '@/views',
       }
     }
-  }
+  },
+  chainWebpack: config => {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title = '登录'
+        return args
+      })
+  },
+  pwa: {
+
+    iconPaths: {
+
+      favicon32: 'favicon.ico',
+
+      favicon16: 'favicon.ico',
+
+      appleTouchIcon: 'favicon.ico',
+
+      maskIcon: 'favicon.ico',
+
+      msTileImage: 'favicon.ico'
+
+    }
+
+  },
 }

@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <login></login>
+    <!-- <login></login> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import login from "components/login/login.vue"
+import login from "views/login.vue"
 export default {
   name:"app",
   components:{
@@ -17,6 +18,8 @@ export default {
 <style>
   @import "assets/css/base.css";
   #app{
-    height: 100%;
+    height: 880px;
+    width: 100%;
+    position: relative;
   }
 </style>

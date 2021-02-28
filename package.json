@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "bmaplib.distancetool": "^1.0.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-baidu-map": "^0.21.22",
